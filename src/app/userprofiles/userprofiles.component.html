@@ -1,0 +1,41 @@
+
+<app-search-user-profiles [inputDataSource]="tempDataSource" (sendDataSourceEvent)="setDataSource($event)"></app-search-user-profiles>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear>
+    <ng-container matColumnDef="gender">
+      <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+    
+    <ng-container matColumnDef="email" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+   
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name.first + element.name.last}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef> Country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.location.country}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.login.username}} </mat-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+
+<mat-paginator #paginator
+    [length]="100"
+    [pageSize]="5"
+    [pageSizeOptions]="[2, 5, 10, 20]"
+>
+</mat-paginator>
+
