@@ -1,0 +1,46 @@
+.btn-counter{
+    background-color: #3F51B5;
+    color: white;
+    padding: 0.75em 1em;
+    font-size: 14px;
+    border-radius: 0.25em;
+    font-weight: 550;
+    margin: 1em 0em;
+    cursor: pointer;
+    border: none;
+}
+
+.user-form{
+    margin: 2em 1em;
+}
+
+.form-group{
+    margin: 1rem 1rem;
+}
+
+.form-control{
+    margin: 1rem 1rem;
+}
+
+button{
+    margin: 0em 1em;
+}
+
+.heroListGroup{
+    display: flex;
+}
+
+.heroList{
+    margin: 1em 2em;
+}
+
+.login-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 2em;
+}
+
+.table-section{
+    margin: 2em;
+}

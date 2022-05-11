@@ -1,0 +1,24 @@
+
+<ng-content select=".heroList"></ng-content>
+
+<div class="btn-group">
+    <button mat-raised-button color="primary" (click)="toggleCheck()">Toggle</button>
+</div>
+
+<div *ngIf = 'check else elseBlock'>
+    <p>I will run when true</p>
+</div>
+
+<ng-template #elseBlock>
+    <p>I will run when false</p>
+</ng-template>
+
+<ul *ngIf="showHeros">
+    <ng-container *ngFor="let hero of superheros">
+        <li *ngIf="hero.universe == universe">{{hero.name}}</li>
+    </ng-container>
+</ul>
+
+<ng-content select=".databaseLink"></ng-content>
+
+

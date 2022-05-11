@@ -1,0 +1,82 @@
+<button mat-raised-button color="primary" (click)="toggleCounter()">Counter</button>
+<button mat-raised-button color="accent" (click)="toggleUserForm()">Form</button>
+<button mat-raised-button color="warn" (click)="toggleTemplate()">Template</button>
+<button mat-raised-button color="warn" (click)="toggleLogin()">Login</button>
+
+
+<div *ngIf="showCounter">
+    <div>
+        <button type="button" (click)="incrementCounterEmitEvent()" class="btn-counter">Increment</button>
+    </div>
+    
+    <div>
+        <button mat-raised-button color="primary" (click)="doubleCounterEmitEvent()">Double</button>
+    </div>
+</div>
+
+<div *ngIf="showForm">
+    <form [formGroup]="userForm" class="user-form" (ngSubmit)="onSubmit()" >
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text"
+                    formControlName = "username"
+                    id="username"
+                    placeholder="Username"
+                    class="form-control"
+            >
+        </div>
+    
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text"
+                    formControlName = "password"
+                    id="password"
+                    placeholder="Password"
+                    class="form-control"
+            >
+        </div>
+    
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="text"
+                    formControlName = "confirmPassword"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    class="form-control"
+            >
+        </div>
+    
+        <p>Form Status : {{userForm.status}}</p>
+    
+        <div>
+            <button mat-raised-button type="submit">Save</button>
+            <button mat-raised-button (click)="onReset()">Reset</button>
+        </div>
+    
+    </form>
+</div>
+
+<div *ngIf="showTemplate" class="heroListGroup">
+    <app-about [superheros]="heros" class="heroList" universe="marvel">
+        <div class="heroList">
+            <h3 >The Marvel List</h3>
+            <a href="" class="databaseLink">Take me to Marvel database</a>
+        </div>
+    </app-about>
+    
+    <app-about [superheros]="heros" class="heroList" universe="dc">
+        <h3 class="heroList">The DC List</h3>
+        <a href="" class="databaseLink">Take me to DC database</a>
+    </app-about>
+</div>
+
+<div *ngIf="showLogin" class="login-section">
+    <app-login></app-login>
+</div>
+
+<div class="table-section">
+    <app-userprofiles></app-userprofiles>
+</div>
+
+
+
