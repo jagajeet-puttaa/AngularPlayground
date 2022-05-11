@@ -1,0 +1,31 @@
+<mat-card class="login-card">
+
+    <form  [formGroup]="loginForm" (ngSubmit)="submit()">
+
+        <mat-card-title class="login-card-title">Login Form</mat-card-title>
+
+        <mat-card-content>
+
+            <mat-form-field appearance="standard">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="emailControl.hasError('required')">Required field</mat-error>
+            </mat-form-field>  
+
+            <app-password [passwordControlName]="passwordControl">
+                <mat-label>Password</mat-label>
+            </app-password>
+
+            <app-password [passwordControlName]="confirmPasswordControl">
+                <mat-label>Confirm Password</mat-label>
+            </app-password>
+
+        </mat-card-content>
+    
+        <mat-card-actions class="login-card-submit">
+            <button mat-raised-button color="accent" type="submit" [disabled]="loginForm.invalid">Submit</button>
+        </mat-card-actions>
+
+    </form>
+
+</mat-card>
